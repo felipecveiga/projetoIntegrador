@@ -15,4 +15,4 @@ import { TemaService } from "./service/tema.service";
     export class TemaModule { }
 
 
-    //o TEMA.MODULE ele compila as informaçoes da tabela dentro do database, puxando os dados de controller, entities e service.
+    

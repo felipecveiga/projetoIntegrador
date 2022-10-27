@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { AuthModule } from './auth/auth.module';
 import { Postagem } from './postagem/entities/postagem.entity';
 import { PostagemModule } from './postagem/postagem.module';
 import { Tema } from './tema/entities/tema.entity';
@@ -24,10 +25,10 @@ import { UsuarioModule } from './usuario/usuario.module';
       synchronize: true
 
     }),
+    PostagemModule,
     TemaModule,
-    UsuarioModule,
-    PostagemModule
-
+    AuthModule,
+    UsuarioModule
   ],
   controllers: [],
   providers: [],
@@ -37,4 +38,3 @@ export class AppModule {}
 
 
 
-// o APP.MODULE ele vai fazer a conexao com o banco de dados MYSQL.

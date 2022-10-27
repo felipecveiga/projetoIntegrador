@@ -1,4 +1,4 @@
-import { IsNotEmpty, MaxLength, MinLength, minLength } from "class-validator";
+import { IsEmail, IsNotEmpty, MaxLength, MinLength, minLength } from "class-validator";
 import { Postagem } from "src/postagem/entities/postagem.entity";
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
@@ -17,25 +17,19 @@ export class Usuario{
     @Column({length: 50, nullable:false})
     nome: string
 
-    @IsNotEmpty () 
-    @MaxLength(30)                                     
-    @Column({length: 30, nullable:false, unique: true})
-    nick: string
+    @IsEmail()
+    @Column({length: 255, nullable: false})
+    usuario: string //email
 
-    @IsNotEmpty ()  
-    @MaxLength(40)                                  
-    @Column({length: 40, nullable:false, unique:true})
-    email: string
-
+   
     @IsNotEmpty () 
-    @MinLength(6)
-    @MaxLength(20)                                     
-    @Column({length: 20, nullable:false})
+    @MinLength(6)                                    
+    @Column({length: 255, nullable:false})
     senha: string
 
     
     @MaxLength(8000)                                
-    @Column({length: 8000, nullable:true})
+    @Column({length: 8000})
     foto: string
 
 
